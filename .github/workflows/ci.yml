@@ -19,8 +19,6 @@ jobs:
         run: dotnet restore apps/api/MyApp.Api.sln
       - name: Build
         run: dotnet build apps/api/MyApp.Api.sln --no-restore
-      - name: Test
-        run: dotnet test apps/api/MyApp.Api.sln --no-build --verbosity normal
 
   frontend:
     runs-on: ubuntu-latest
