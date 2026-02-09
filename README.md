@@ -3,7 +3,7 @@
 A scalable, modern web application template using **Next.js**, **.NET 8**, and **PostgreSQL**.
 
 ## Stack
-- **Frontend**: Next.js 14 (App Router) + TypeScript + Tailwind CSS + shadcn/ui
+- **Frontend**: Next.js 16 (App Router) + TypeScript + Tailwind CSS + shadcn/ui
 - **Backend**: .NET 8 Web API + Entity Framework Core
 - **Database**: PostgreSQL
 - **Auth**: JWT + Refresh Tokens + RBAC
