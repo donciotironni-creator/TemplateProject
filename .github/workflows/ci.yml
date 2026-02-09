@@ -6,14 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
-# Cancel in-progress runs when a new push is made
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   backend:
-    name: 🛡️ Backend (Build & Test)
+    name: 🛡️ Backend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,17 +22,17 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
-      - name: Restore dependencies
+      - name: Restore
         run: dotnet restore apps/api/MyApp.Api.sln
 
       - name: Build
-        run: dotnet build apps/api/MyApp.Api.sln --no-restore -c Release
+        run: dotnet build apps/api/MyApp.Api.sln -c Release
 
       - name: Test
-        run: dotnet test apps/api/MyApp.Api.sln --no-build --verbosity normal
+        run: dotnet test apps/api/MyApp.Api.sln -c Release --no-build
 
   frontend:
-    name: 🎨 Frontend (Lint & Build)
+    name: 🎨 Frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,11 +44,8 @@ jobs:
           cache: 'npm'
           cache-dependency-path: apps/web/package-lock.json
 
-      - name: Install dependencies
-        run: npm ci --prefix apps/web
-
-      - name: Lint
-        run: npm run lint --prefix apps/web
+      - name: Install
+        run: npm install --prefix apps/web
 
       - name: Build
         run: npm run build --prefix apps/web

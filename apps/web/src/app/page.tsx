@@ -50,7 +50,7 @@ export default function LandingPage() {
               <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">faster than ever before</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-slate-600">
-              A premium, production-ready template using Next.js 14, .NET 8, and PostgreSQL.
+              A premium, production-ready template using Next.js 16, .NET 8, and PostgreSQL.
               The ultimate starting point for modern full-stack applications.
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
