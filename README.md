@@ -1,5 +1,8 @@
 # MyApp - Modern Full-Stack Template
 
+![Backend Status](https://github.com/donciotironni-creator/TemplateProject/actions/workflows/ci.yml/badge.svg?job=backend)
+![Frontend Status](https://github.com/donciotironni-creator/TemplateProject/actions/workflows/ci.yml/badge.svg?job=frontend)
+
 A scalable, modern web application template using **Next.js**, **.NET 8**, and **PostgreSQL**.
 
 ## Stack
