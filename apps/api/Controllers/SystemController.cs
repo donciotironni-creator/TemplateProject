@@ -19,12 +19,17 @@ namespace MyApp.Api.Controllers
         public async Task<IActionResult> GetStatus()
         {
             var dbOk = false;
+            
             try
             {
-                // Simple check to see if we can connect to DB
-                dbOk = await _context.Database.CanConnectAsync();
+                // Health check with a 1s timeout to keep the UI responsive
+                using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(1));
+                dbOk = await _context.Database.CanConnectAsync(cts.Token);
             }
-            catch { }
+            catch 
+            {
+                dbOk = false;
+            }
 
             return Ok(new
             {

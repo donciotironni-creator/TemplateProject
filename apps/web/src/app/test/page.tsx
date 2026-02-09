@@ -21,11 +21,13 @@ export default function TestPage() {
     useEffect(() => {
         async function checkStatus() {
             try {
-                const res = await fetch("http://localhost:5000/api/system/status");
-                if (!res.ok) throw new Error("Backend unreachable");
+                const res = await fetch("http://127.0.0.1:5000/api/system/status");
+                if (!res.ok) throw new Error(`Backend unreachable: ${res.status} ${res.statusText}`);
                 const json = await res.json();
+                console.log("Backend response:", json);
                 setData(json);
             } catch (err: any) {
+                console.error("Test page error:", err);
                 setError(err.message);
             } finally {
                 setLoading(false);
